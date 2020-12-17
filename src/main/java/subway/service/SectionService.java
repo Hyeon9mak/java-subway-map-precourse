@@ -13,6 +13,8 @@ import subway.view.UserInput;
 
 public class SectionService {
 
+    private static final int NOT_ENOUGH_STATIONS = 2;
+
     public static void insert() {
         Section section = SectionService
             .getSectionByLineName(UserInput.getLineNameForInsertSection());
@@ -26,16 +28,33 @@ public class SectionService {
     public static void delete() {
         Section section = SectionService.
             getSectionByLineName(UserInput.getLineNameForDeleteSection());
+        SectionService.validateEnoughStations(section);
         Station station = StationService
             .getStationByName(UserInput.getStationNameForDeleteSection());
         section.deleteStation(station);
         SectionDisplay.printDeleteSuccess();
     }
 
-    public static void print() {
-        List<Section> sections = SectionRepository.sections();
-        MainDisplay.printSections(sections);
+    private static void validateEnoughStations(Section section) {
+        if (section.getStations().size() <= NOT_ENOUGH_STATIONS) {
+            throw new IllegalArgumentException("노선에 등록된 지하철 역이 2개 이하이므로 삭제가 불가능 합니다.");
+        }
+    }
 
+    public static void print() {
+        try {
+            List<Section> sections = SectionRepository.sections();
+            SectionService.validateSectionsEmpty(sections);
+            MainDisplay.printSections(sections);
+        } catch (IllegalArgumentException e){
+            MainDisplay.printError(e.getMessage());
+        }
+    }
+
+    private static void validateSectionsEmpty(List<Section> sections) {
+        if (sections.isEmpty()) {
+            throw new IllegalArgumentException("지하철 노선도 목록이 비어있습니다.");
+        }
     }
 
     public static void saveByLineService(Line line) {
