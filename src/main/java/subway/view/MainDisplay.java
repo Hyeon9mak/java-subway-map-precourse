@@ -27,10 +27,10 @@ public class MainDisplay extends Display {
 
     public static void printSections(List<Section> sections) {
         printNotice(PRINT_SECTIONS_MESSAGE);
-        sections.stream().forEach(sc->{
+        sections.stream().forEach(sc -> {
             System.out.println(INFO_PREFIX + sc.getLine().getName());
             System.out.println(INFO_PREFIX + "---");
-            sc.getStations().stream().forEach(st->
+            sc.getStations().stream().forEach(st ->
                 System.out.println(INFO_PREFIX + st.getName()));
             System.out.println();
         });

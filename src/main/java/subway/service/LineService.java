@@ -3,7 +3,6 @@ package subway.service;
 import java.util.List;
 import subway.domain.Line;
 import subway.domain.LineRepository;
-import subway.domain.StationRepository;
 import subway.view.LineDisplay;
 import subway.view.UserInput;
 
@@ -32,7 +31,7 @@ public class LineService {
 
     public static Line getLineByName(String name) {
         return LineRepository.lines().stream()
-            .filter(l->l.getName().equals(name))
+            .filter(l -> l.getName().equals(name))
             .findAny()
             .get();
     }

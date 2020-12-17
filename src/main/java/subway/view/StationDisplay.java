@@ -35,12 +35,12 @@ public class StationDisplay extends Display {
         printInformation(SAVE_SUCCESS_MESSAGE);
     }
 
+    public static void printDeleteSuccess() {
+        printInformation(DELETE_SUCCESS_MESSAGE);
+    }
+
     public static void printStations(List<Station> stations) {
         printNotice(PRINT_STATIONS_MESSAGE);
         stations.stream().forEach(station -> System.out.println("[INFO] " + station.getName()));
-    }
-
-    public static void printDeleteSuccess() {
-        printInformation(DELETE_SUCCESS_MESSAGE);
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class LineRepository {
+
     private static final List<Line> lines = new ArrayList<>();
 
     public static List<Line> lines() {
@@ -25,7 +26,7 @@ public class LineRepository {
     }
 
     private static void validateDuplicate(Line line) {
-        if (lines.stream().anyMatch(l->l.getName().equals(line.getName()))) {
+        if (lines.stream().anyMatch(l -> l.getName().equals(line.getName()))) {
             throw new IllegalArgumentException("이미 등록된 노선 이름입니다.");
         }
     }

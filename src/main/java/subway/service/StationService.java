@@ -24,7 +24,7 @@ public class StationService {
     }
 
     private static void validateContain(Station station) {
-        if(SectionService.containByStationService(station)){
+        if (SectionService.containByStationService(station)) {
             throw new IllegalArgumentException("노선에 포함된 역은 삭제 할 수 없습니다.");
         }
     }
@@ -36,7 +36,7 @@ public class StationService {
 
     public static Station getStationByName(String name) {
         return StationRepository.stations().stream()
-            .filter(s->s.getName().equals(name))
+            .filter(s -> s.getName().equals(name))
             .findAny()
             .get();
     }
