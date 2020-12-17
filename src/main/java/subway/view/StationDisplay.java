@@ -2,6 +2,7 @@ package subway.view;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import subway.domain.Station;
 
 public class StationDisplay extends Display {
@@ -21,12 +22,22 @@ public class StationDisplay extends Display {
         StationMenu selectedMenu = null;
         while (selectedMenu != StationMenu.BACK) {
             printMenu();
-            selectedMenu = StationMenu.getMenuByInput(UserInput.getSelectMenu());
+            selectedMenu = selectMenu();
             try {
                 selectedMenu.executeMenu();
                 break;
             } catch (IllegalArgumentException e) {
                 printError(e.getMessage());
+            }
+        }
+    }
+
+    private static StationMenu selectMenu() {
+        while (true) {
+            try {
+                return StationMenu.getMenuByInput(UserInput.getSelectMenu());
+            } catch (NoSuchElementException e) {
+                printSelectError();
             }
         }
     }

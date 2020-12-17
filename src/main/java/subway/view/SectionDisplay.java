@@ -1,6 +1,7 @@
 package subway.view;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class SectionDisplay extends Display {
 
@@ -18,12 +19,22 @@ public class SectionDisplay extends Display {
         SectionMenu selectedMenu = null;
         while (selectedMenu != SectionMenu.BACK) {
             printMenu();
-            selectedMenu = SectionMenu.getMenuByInput(UserInput.getSelectMenu());
+            selectedMenu = selectMenu();
             try {
                 selectedMenu.executeMenu();
                 break;
             } catch (IllegalArgumentException e) {
                 printError(e.getMessage());
+            }
+        }
+    }
+
+    private static SectionMenu selectMenu() {
+        while (true) {
+            try {
+                return SectionMenu.getMenuByInput(UserInput.getSelectMenu());
+            } catch (NoSuchElementException e) {
+                printSelectError();
             }
         }
     }
