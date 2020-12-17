@@ -1,6 +1,7 @@
 package subway.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.view.LineDisplay;
@@ -9,6 +10,7 @@ import subway.view.UserInput;
 public class LineService {
 
     public static void save() {
+        StationService.validateStationRepositoryEmpty();
         String name = UserInput.getLineNameForSave();
         Line line = Line.newLineWithName(name);
         SectionService.saveByLineService(line);
@@ -30,9 +32,13 @@ public class LineService {
     }
 
     public static Line getLineByName(String name) {
-        return LineRepository.lines().stream()
-            .filter(l -> l.getName().equals(name))
-            .findAny()
-            .get();
+        try {
+            return LineRepository.lines().stream()
+                .filter(l -> l.getName().equals(name))
+                .findAny()
+                .get();
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException("등록되지 않은 노선 입니다.");
+        }
     }
 }

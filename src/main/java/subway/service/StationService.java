@@ -1,6 +1,7 @@
 package subway.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import subway.domain.Station;
 import subway.domain.StationRepository;
 import subway.view.StationDisplay;
@@ -16,11 +17,16 @@ public class StationService {
     }
 
     public static void delete() {
+        StationService.validateStationRepositoryEmpty();
         String name = UserInput.getStationNameForDelete();
         Station station = StationService.getStationByName(name);
         StationService.validateContain(station);
         StationRepository.deleteStation(station);
         StationDisplay.printDeleteSuccess();
+    }
+
+    public static void validateStationRepositoryEmpty() {
+        StationRepository.stations();
     }
 
     private static void validateContain(Station station) {
@@ -35,9 +41,13 @@ public class StationService {
     }
 
     public static Station getStationByName(String name) {
-        return StationRepository.stations().stream()
-            .filter(s -> s.getName().equals(name))
-            .findAny()
-            .get();
+        try {
+            return StationRepository.stations().stream()
+                .filter(s -> s.getName().equals(name))
+                .findAny()
+                .get();
+        } catch (NoSuchElementException e){
+            throw new IllegalArgumentException("등록되지 않은 역 입니다.");
+        }
     }
 }

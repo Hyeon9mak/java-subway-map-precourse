@@ -1,6 +1,7 @@
 package subway.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import subway.domain.Line;
 import subway.domain.Order;
 import subway.domain.Section;
@@ -50,10 +51,15 @@ public class SectionService {
     }
 
     private static Section getSectionByLineName(String name) {
-        return SectionRepository.sections().stream()
-            .filter(s -> s.getLine().getName().equals(name))
-            .findAny()
-            .get();
+        try {
+            return SectionRepository.sections().stream()
+                .filter(s -> s.getLine().getName().equals(name))
+                .findAny()
+                .get();
+        } catch (
+            NoSuchElementException e) {
+            throw new IllegalArgumentException("등록되지 않은 노선 입니다.");
+        }
     }
 
     public static boolean containByStationService(Station station) {
