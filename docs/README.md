@@ -16,6 +16,8 @@
     - StationRepostiroy->Station 이름
 - 노선(Line) 등록
     - Line 만든 후 LineRepository에 등록
+    - SectionService에도 등록
+- 노선(Line) 출력
 - 구간(Section) 등록
     - StationService를 통해 가져와서 Line에 등록
 - 구간(Section) 출력
@@ -44,7 +46,7 @@
 - [ ] 구간(Section)에 등록되어 있는 역
 
 #### 출력
-- [ ] 등록 되어있는 Station이 없는 경우
+- [x] 등록 되어있는 Station이 없는 경우
 
 ### Line 관련
 #### 저장
@@ -52,13 +54,13 @@
 - [x] 이름이 '선'으로 끝나지 않을 시
 - [x] 이름에 공백이 포함된 경우
 - [x] 중복된 노선명
-- [ ] 상/하행에 중복된 Station
+- [x] 상/하행에 중복된 Station
 
 #### 삭제
 - [ ] 없는 노선명
 
 #### 출력
-- [ ] 등록 되어있는 Line이 없는 경우
+- [x] 등록 되어있는 Line이 없는 경우
 
 ### Section 관련
 #### 삽입
