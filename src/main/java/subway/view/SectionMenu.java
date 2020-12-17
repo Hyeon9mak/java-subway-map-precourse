@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 import subway.service.SectionService;
 
 public enum SectionMenu {
-    SAVE("1", "구간 등록", (key) -> SectionService.save()),
+    SAVE("1", "구간 등록", (key) -> SectionService.insert()),
     DELETE("2", "구간 삭제", (key) -> SectionService.delete()),
     BACK("B", "돌아가기", (key) -> back());
 

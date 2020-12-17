@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class SectionDisplay extends Display{
     private static final String DISPLAY_NAME = "구간 관리 화면";
+    private static final String INSERT_SUCCESS_MESSAGE = "구간이 등록되었습니다.";
 
     public static void printMenu() {
         printNotice(DISPLAY_NAME);
@@ -18,5 +19,9 @@ public class SectionDisplay extends Display{
             selectedMenu = SectionMenu.getMenuByInput(UserInput.getSelectMenu());
             selectedMenu.executeMenu();
         }
+    }
+
+    public static void printInsertSuccess() {
+        printInformation(INSERT_SUCCESS_MESSAGE);
     }
 }

@@ -29,4 +29,19 @@ public class UserInput extends Display {
         printNotice("등록할 노선의 하행 종점역 이름을 입력하세요.");
         return scanner.nextLine();
     }
+
+    public static String getLineNameForInsert() {
+        printNotice("노선을 입력하세요.");
+        return scanner.nextLine();
+    }
+
+    public static String getStationNameForInsert() {
+        printNotice("역이름을 입력하세요.");
+        return scanner.nextLine();
+    }
+
+    public static String getOrderForInsert() {
+        printNotice("순서를 입력하세요.");
+        return scanner.nextLine();
+    }
 }
