@@ -8,6 +8,7 @@ public class StationDisplay extends Display {
 
     private static final String DISPLAY_NAME = "역 관리 화면";
     private static final String SAVE_SUCCESS_MESSAGE = "지하철 역이 등록되었습니다.";
+    private static final String DELETE_SUCCESS_MESSAGE = "지하철 역이 삭제되었습니다.";
     private static final String PRINT_STATIONS_MESSAGE = "역 목록";
 
     public static void printMenu() {
@@ -32,5 +33,9 @@ public class StationDisplay extends Display {
     public static void printStations(List<Station> stations) {
         printNotice(PRINT_STATIONS_MESSAGE);
         stations.stream().forEach(station -> System.out.println("[INFO] " + station.getName()));
+    }
+
+    public static void printDeleteSuccess() {
+        printInformation(DELETE_SUCCESS_MESSAGE);
     }
 }

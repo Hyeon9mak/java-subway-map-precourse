@@ -54,4 +54,9 @@ public class UserInput extends Display {
         printNotice("삭제할 구간의 역을 입력하세요.");
         return scanner.nextLine();
     }
+
+    public static String getStationNameForDelete() {
+        printNotice("삭제할 역 이름을 입력하세요.");
+        return scanner.nextLine();
+    }
 }

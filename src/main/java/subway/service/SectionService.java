@@ -50,4 +50,9 @@ public class SectionService {
             .findAny()
             .get();
     }
+
+    public static boolean containByStationService(Station station) {
+        return SectionRepository.sections().stream().anyMatch(s ->
+            s.getStations().contains(station));
+    }
 }

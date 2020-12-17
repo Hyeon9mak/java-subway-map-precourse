@@ -8,7 +8,6 @@ public class SectionRepository {
     private static final List<Section> sections = new ArrayList<>();
 
     public static List<Section> sections() {
-        validateEmpty();
         return Collections.unmodifiableList(sections);
     }
 
