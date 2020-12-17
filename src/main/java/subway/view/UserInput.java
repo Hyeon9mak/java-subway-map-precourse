@@ -9,4 +9,9 @@ public class UserInput extends Display {
         printNotice("원하는 기능을 선택하세요.");
         return scanner.nextLine();
     }
+
+    public static String getStationNameForSave() {
+        printNotice("등록할 역 이름을 입력하세요.");
+        return scanner.nextLine();
+    }
 }

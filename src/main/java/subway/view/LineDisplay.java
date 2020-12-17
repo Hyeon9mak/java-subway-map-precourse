@@ -3,10 +3,10 @@ package subway.view;
 import java.util.Arrays;
 
 public class LineDisplay extends Display {
-    private static final String displayName = "노선 관리 화면";
+    private static final String DISPLAY_NAME = "노선 관리 화면";
 
     public static void printMenu() {
-        printNotice(displayName);
+        printNotice(DISPLAY_NAME);
         Arrays.stream(LineMenu.values()).forEach(menu ->
             System.out.println(menu.getKey() + ". " + menu.getName()));
     }

@@ -9,8 +9,8 @@ public class Display {
         System.out.println("## " + message);
     }
 
-    public static void printInformation(){
-
+    public static void printInformation(String message){
+        System.out.println("[INFO] " + message);
     }
 
 }

@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class MainDisplay extends Display {
 
-    private static final String displayName = "메인 화면";
+    private static final String DISPLAY_NAME = "메인 화면";
 
     public static void printMenu() {
-        printNotice(displayName);
+        printNotice(DISPLAY_NAME);
         Arrays.stream(MainMenu.values()).forEach(menu ->
             System.out.println(menu.getKey() + ". " + menu.getName()));
     }
