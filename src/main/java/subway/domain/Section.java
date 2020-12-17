@@ -2,6 +2,7 @@ package subway.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Section {
@@ -46,5 +47,9 @@ public class Section {
         if(stations.contains(station)){
             throw new IllegalArgumentException("이미 구간으로 등록된 역 이름 입니다.");
         }
+    }
+
+    public List<Station> getStations() {
+        return Collections.unmodifiableList(stations);
     }
 }

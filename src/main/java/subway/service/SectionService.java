@@ -1,10 +1,14 @@
 package subway.service;
 
+import java.util.List;
 import subway.domain.Line;
+import subway.domain.LineRepository;
 import subway.domain.Order;
 import subway.domain.Section;
 import subway.domain.SectionRepository;
 import subway.domain.Station;
+import subway.view.LineDisplay;
+import subway.view.MainDisplay;
 import subway.view.SectionDisplay;
 import subway.view.UserInput;
 
@@ -18,17 +22,13 @@ public class SectionService {
         SectionDisplay.printInsertSuccess();
     }
 
-    private static Section getSectionByLineName(String name) {
-        return SectionRepository.sections().stream()
-            .filter(s -> s.getLine().getName().equals(name))
-            .findAny()
-            .get();
-    }
-
     public static void delete() {
     }
 
     public static void print() {
+        List<Section> sections = SectionRepository.sections();
+        MainDisplay.printSections(sections);
+
     }
 
     public static void saveByLineService(Line line) {
@@ -38,6 +38,10 @@ public class SectionService {
         SectionRepository.addSection(section);
     }
 
-    public static void printSections() {
+    private static Section getSectionByLineName(String name) {
+        return SectionRepository.sections().stream()
+            .filter(s -> s.getLine().getName().equals(name))
+            .findAny()
+            .get();
     }
 }
