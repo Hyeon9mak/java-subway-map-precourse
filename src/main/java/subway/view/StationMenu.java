@@ -2,20 +2,19 @@ package subway.view;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
-import subway.service.SectionService;
+import subway.service.StationService;
 
-public enum MainMenu {
-    STATION("1", "역관리", (key) -> StationDisplay.loadMenu()),
-    LINE("2", "노선 관리", (key) -> LineDisplay.loadMenu()),
-    SECTION("3", "구간 관리", (key) -> SectionDisplay.loadMenu()),
-    PRINT("4", "지하철 노선도 출력", (key) -> SectionService.printAllSections()),
-    QUIT("Q", "종료", (key) -> back());
+public enum StationMenu {
+    SAVE("1", "역 등록", (key) -> StationService.save()),
+    DELETE("2", "역 삭제", (key) -> StationService.delete()),
+    PRINT("3", "역 조회", (key) -> StationService.print()),
+    BACK("B", "돌아가기", (key) -> back());
 
     private final String key;
     private final String name;
     private final Consumer<String> select;
 
-    MainMenu(String key, String name, Consumer<String> select) {
+    StationMenu(String key, String name, Consumer<String> select) {
         this.key = key;
         this.name = name;
         this.select = select;
@@ -24,7 +23,7 @@ public enum MainMenu {
     private static void back() {
     }
 
-    public static MainMenu getMenuByInput(String input) {
+    public static StationMenu getMenuByInput(String input) {
         return Arrays.stream(values()).filter(mainMenu
             -> mainMenu.key.equals(input))
             .findAny()

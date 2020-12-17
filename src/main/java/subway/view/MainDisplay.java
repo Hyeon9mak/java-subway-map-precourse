@@ -6,7 +6,7 @@ public class MainDisplay extends Display {
 
     private static final String displayName = "메인 화면";
 
-    public static void printMainMenu() {
+    public static void printMenu() {
         printNotice(displayName);
         Arrays.stream(MainMenu.values()).forEach(menu ->
             System.out.println(menu.getKey() + ". " + menu.getName()));
@@ -15,8 +15,9 @@ public class MainDisplay extends Display {
     public static void loadMenu() {
         MainMenu selectedMenu = null;
         while (selectedMenu != MainMenu.QUIT) {
-            printMainMenu();
-            break;
+            printMenu();
+            selectedMenu = MainMenu.getMenuByInput(UserInput.getSelectMenu());
+            selectedMenu.executeMenu();
         }
     }
 }

@@ -1,9 +1,6 @@
 package subway.service;
 
-public class SectionService {
-
-    public static void printAllSections() {
-    }
+public class LineService {
 
     public static void save() {
     }
