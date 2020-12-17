@@ -1,5 +1,6 @@
 package subway.service;
 
+import java.util.List;
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.view.LineDisplay;
@@ -19,5 +20,7 @@ public class LineService {
     }
 
     public static void print() {
+        List<Line> lines = LineRepository.lines();
+        LineDisplay.printLines(lines);
     }
 }
