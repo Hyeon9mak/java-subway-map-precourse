@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class LineDisplay extends Display {
     private static final String DISPLAY_NAME = "노선 관리 화면";
+    private static final String SAVE_SUCCESS_MESSAGE = "지하철 노선이 등록되었습니다.";
 
     public static void printMenu() {
         printNotice(DISPLAY_NAME);
@@ -18,5 +19,9 @@ public class LineDisplay extends Display {
             selectedMenu = LineMenu.getMenuByInput(UserInput.getSelectMenu());
             selectedMenu.executeMenu();
         }
+    }
+
+    public static void printSaveSuccess() {
+        printInformation(SAVE_SUCCESS_MESSAGE);
     }
 }

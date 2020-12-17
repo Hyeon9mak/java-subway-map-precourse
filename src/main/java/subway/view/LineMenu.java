@@ -5,9 +5,9 @@ import java.util.function.Consumer;
 import subway.service.LineService;
 
 public enum LineMenu {
-    SAVE("1", "역 등록", (key) -> LineService.save()),
-    DELETE("2", "역 삭제", (key) -> LineService.delete()),
-    PRINT("3", "역 조회", (key) -> LineService.print()),
+    SAVE("1", "노선 등록", (key) -> LineService.save()),
+    DELETE("2", "노선 삭제", (key) -> LineService.delete()),
+    PRINT("3", "노선 조회", (key) -> LineService.print()),
     BACK("B", "돌아가기", (key) -> back());
 
     private final String key;
