@@ -11,7 +11,7 @@ public class LineService {
         String name = UserInput.getLineNameForSave();
         Line line = Line.newLineWithName(name);
         LineRepository.addLine(line);
-        SectionService.saveByLineService();
+        SectionService.saveByLineService(line);
         LineDisplay.printSaveSuccess();
     }
 

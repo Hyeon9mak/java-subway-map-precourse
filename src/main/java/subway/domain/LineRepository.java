@@ -20,6 +20,7 @@ public class LineRepository {
     }
 
     public static void addLine(Line line) {
+        validateDuplicate(line);
         lines.add(line);
     }
 

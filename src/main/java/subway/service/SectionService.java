@@ -1,9 +1,12 @@
 package subway.service;
 
-public class SectionService {
+import subway.domain.Line;
+import subway.domain.Section;
+import subway.domain.SectionRepository;
+import subway.domain.Station;
+import subway.view.UserInput;
 
-    public static void printAllSections() {
-    }
+public class SectionService {
 
     public static void save() {
     }
@@ -14,6 +17,13 @@ public class SectionService {
     public static void print() {
     }
 
-    public static void saveByLineService() {
+    public static void saveByLineService(Line line) {
+        Station start = StationService.getStationByName(UserInput.getStationNameForStart());
+        Station end = StationService.getStationByName(UserInput.getStationNameForEnd());
+        Section section = Section.newSectionWithLineStations(line, start, end);
+        SectionRepository.addSection(section);
+    }
+
+    public static void printSections() {
     }
 }

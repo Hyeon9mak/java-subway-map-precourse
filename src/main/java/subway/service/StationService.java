@@ -22,4 +22,11 @@ public class StationService {
         List<Station> stations = StationRepository.stations();
         StationDisplay.printStations(stations);
     }
+
+    public static Station getStationByName(String name) {
+        return StationRepository.stations().stream()
+            .filter(s->s.getName().equals(name))
+            .findAny()
+            .get();
+    }
 }

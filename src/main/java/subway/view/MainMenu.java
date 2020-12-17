@@ -8,7 +8,7 @@ public enum MainMenu {
     STATION("1", "역관리", (key) -> StationDisplay.loadMenu()),
     LINE("2", "노선 관리", (key) -> LineDisplay.loadMenu()),
     SECTION("3", "구간 관리", (key) -> SectionDisplay.loadMenu()),
-    PRINT("4", "지하철 노선도 출력", (key) -> SectionService.printAllSections()),
+    PRINT("4", "지하철 노선도 출력", (key) -> SectionService.printSections()),
     QUIT("Q", "종료", (key) -> back());
 
     private final String key;
