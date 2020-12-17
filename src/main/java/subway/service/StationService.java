@@ -1,5 +1,6 @@
 package subway.service;
 
+import java.util.List;
 import subway.domain.Station;
 import subway.domain.StationRepository;
 import subway.view.StationDisplay;
@@ -14,9 +15,11 @@ public class StationService {
         StationDisplay.printSaveSuccess();
     }
 
-    public static void print() {
+    public static void delete() {
     }
 
-    public static void delete() {
+    public static void print() {
+        List<Station> stations = StationRepository.stations();
+        StationDisplay.printStations(stations);
     }
 }

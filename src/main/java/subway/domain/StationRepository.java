@@ -6,10 +6,18 @@ import java.util.List;
 import java.util.Objects;
 
 public class StationRepository {
+
     private static final List<Station> stations = new ArrayList<>();
 
     public static List<Station> stations() {
+        validateEmpty();
         return Collections.unmodifiableList(stations);
+    }
+
+    private static void validateEmpty() {
+        if (stations.isEmpty()) {
+            throw new IllegalArgumentException("지하철 역 목록이 비어있습니다.");
+        }
     }
 
     public static void addStation(Station station) {
@@ -18,7 +26,7 @@ public class StationRepository {
     }
 
     private static void validateDuplicate(Station station) {
-        if(stations.contains(station)){
+        if (stations.contains(station)) {
             throw new IllegalArgumentException("이미 등록된 역 이름입니다.");
         }
     }
