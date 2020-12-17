@@ -19,7 +19,12 @@ public class SectionDisplay extends Display {
         while (selectedMenu != SectionMenu.BACK) {
             printMenu();
             selectedMenu = SectionMenu.getMenuByInput(UserInput.getSelectMenu());
-            selectedMenu.executeMenu();
+            try {
+                selectedMenu.executeMenu();
+                break;
+            } catch (IllegalArgumentException e) {
+                printError(e.getMessage());
+            }
         }
     }
 

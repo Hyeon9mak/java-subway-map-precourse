@@ -21,7 +21,12 @@ public class LineDisplay extends Display {
         while (selectedMenu != LineMenu.BACK) {
             printMenu();
             selectedMenu = LineMenu.getMenuByInput(UserInput.getSelectMenu());
-            selectedMenu.executeMenu();
+            try {
+                selectedMenu.executeMenu();
+                break;
+            } catch (IllegalArgumentException e) {
+                printError(e.getMessage());
+            }
         }
     }
 

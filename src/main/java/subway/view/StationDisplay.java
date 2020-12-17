@@ -22,7 +22,12 @@ public class StationDisplay extends Display {
         while (selectedMenu != StationMenu.BACK) {
             printMenu();
             selectedMenu = StationMenu.getMenuByInput(UserInput.getSelectMenu());
-            selectedMenu.executeMenu();
+            try {
+                selectedMenu.executeMenu();
+                break;
+            } catch (IllegalArgumentException e) {
+                printError(e.getMessage());
+            }
         }
     }
 
