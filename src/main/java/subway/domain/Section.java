@@ -49,6 +49,12 @@ public class Section {
         }
     }
 
+    public void deleteStation(Station station) {
+        if(!stations.remove(station)){
+            throw new IllegalArgumentException("해당 역은 구간에 등록되어 있지 않습니다.");
+        }
+    }
+
     public List<Station> getStations() {
         return Collections.unmodifiableList(stations);
     }

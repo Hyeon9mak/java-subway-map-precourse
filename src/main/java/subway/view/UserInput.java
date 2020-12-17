@@ -20,28 +20,38 @@ public class UserInput extends Display {
         return scanner.nextLine();
     }
 
-    public static String getStationNameForStart() {
+    public static String getStationNameForStartStation() {
         printNotice("등록할 노선의 상행 종점역 이름을 입력하세요.");
         return scanner.nextLine();
     }
 
-    public static String getStationNameForEnd(){
+    public static String getStationNameForEndStation(){
         printNotice("등록할 노선의 하행 종점역 이름을 입력하세요.");
         return scanner.nextLine();
     }
 
-    public static String getLineNameForInsert() {
+    public static String getLineNameForInsertSection() {
         printNotice("노선을 입력하세요.");
         return scanner.nextLine();
     }
 
-    public static String getStationNameForInsert() {
+    public static String getStationNameForInsertSection() {
         printNotice("역이름을 입력하세요.");
         return scanner.nextLine();
     }
 
     public static String getOrderForInsert() {
         printNotice("순서를 입력하세요.");
+        return scanner.nextLine();
+    }
+
+    public static String getLineNameForDeleteSection() {
+        printNotice("삭제할 구간의 노선을 입력하세요.");
+        return scanner.nextLine();
+    }
+
+    public static String getStationNameForDeleteSection() {
+        printNotice("삭제할 구간의 역을 입력하세요.");
         return scanner.nextLine();
     }
 }
