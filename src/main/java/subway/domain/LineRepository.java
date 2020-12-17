@@ -24,7 +24,7 @@ public class LineRepository {
     }
 
     private static void validateDuplicate(Line line) {
-        if (lines.contains(line)) {
+        if (lines.stream().anyMatch(l->l.getName().equals(line.getName()))) {
             throw new IllegalArgumentException("이미 등록된 노선 이름입니다.");
         }
     }

@@ -26,7 +26,7 @@ public class StationRepository {
     }
 
     private static void validateDuplicate(Station station) {
-        if (stations.contains(station)) {
+        if (stations.stream().anyMatch(s -> s.getName().equals(station.getName()))) {
             throw new IllegalArgumentException("이미 등록된 역 이름입니다.");
         }
     }
