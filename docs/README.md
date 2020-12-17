@@ -16,9 +16,9 @@
     - StationRepostiroy->Station 이름
 - 노선(Line) 등록
     - Line 만든 후 LineRepository에 등록
-- 구간(Section) 출력
 - 구간(Section) 등록
     - StationService를 통해 가져와서 Line에 등록
+- 구간(Section) 출력
 - 구간(Section) 삭제
     - LineService를 통해 가져와서 제거
 - 역(Station) 제거
