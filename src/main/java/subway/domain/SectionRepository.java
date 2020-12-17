@@ -3,6 +3,7 @@ package subway.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class SectionRepository {
     private static final List<Section> sections = new ArrayList<>();
@@ -19,5 +20,9 @@ public class SectionRepository {
         if(sections.isEmpty()){
             throw new IllegalArgumentException("등록되어 있는 노선구간이 없습니다.");
         }
+    }
+
+    public static boolean deleteSection(Section section) {
+        return sections.removeIf(s -> Objects.equals(s, section));
     }
 }

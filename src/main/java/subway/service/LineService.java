@@ -18,6 +18,11 @@ public class LineService {
     }
 
     public static void delete() {
+        String name = UserInput.getLineNameForDelete();
+        Line line = LineService.getLineByName(name);
+        SectionService.deleteByLineService(line);
+        LineRepository.deleteLine(line);
+        LineDisplay.printDeleteSuccess();
     }
 
     public static void print() {

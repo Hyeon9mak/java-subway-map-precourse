@@ -7,6 +7,7 @@ import subway.domain.Line;
 public class LineDisplay extends Display {
     private static final String DISPLAY_NAME = "노선 관리 화면";
     private static final String SAVE_SUCCESS_MESSAGE = "지하철 노선이 등록되었습니다.";
+    private static final String DELETE_SUCCESS_MESSAGE = "지하철 노선이 삭제되었습니다.";
     private static final String PRINT_STATIONS_MESSAGE = "노선 목록";
 
     public static void printMenu() {
@@ -31,5 +32,9 @@ public class LineDisplay extends Display {
     public static void printLines(List<Line> lines) {
         printNotice(PRINT_STATIONS_MESSAGE);
         lines.stream().forEach(line -> System.out.println("[INFO] " + line.getName()));
+    }
+
+    public static void printDeleteSuccess() {
+        printInformation(DELETE_SUCCESS_MESSAGE);
     }
 }

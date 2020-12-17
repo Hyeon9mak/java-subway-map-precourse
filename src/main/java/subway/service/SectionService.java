@@ -44,6 +44,11 @@ public class SectionService {
         SectionRepository.addSection(section);
     }
 
+    public static void deleteByLineService(Line line) {
+        Section section = SectionService.getSectionByLineName(line.getName());
+        SectionRepository.deleteSection(section);
+    }
+
     private static Section getSectionByLineName(String name) {
         return SectionRepository.sections().stream()
             .filter(s -> s.getLine().getName().equals(name))
