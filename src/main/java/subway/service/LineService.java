@@ -10,8 +10,8 @@ public class LineService {
     public static void save() {
         String name = UserInput.getLineNameForSave();
         Line line = Line.newLineWithName(name);
-        LineRepository.addLine(line);
         SectionService.saveByLineService(line);
+        LineRepository.addLine(line);
         LineDisplay.printSaveSuccess();
     }
 
